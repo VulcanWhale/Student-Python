@@ -32,8 +32,6 @@
 
 # Refactored code starts here
 
-# Wap to check whether the given character is digit or not.
-
 n = input("Please enter a character: ")
 
 if len(n) != 1:
@@ -61,5 +59,3 @@ else:
         print(f"{n} is a digit")
     else:
         print(f"{n} is not a digit character")
-
-# Refactored code ends here
