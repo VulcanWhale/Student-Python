@@ -2,10 +2,30 @@
 
 n = input("Please enter a character: ")
 
-if len(n) == 1:
-    if n.isdigit():
-        print(f"{n} is a digit")
+c = int(input("Please enter a choice for which approach you wanna use: "))
+
+if c == 1:
+    if len(n) == 1:
+        if n.isdigit():
+            print(f"{n} is a digit")
+        else:
+            print(f"{n} is not a digit character")
     else:
-        print(f"{n} is not a digit character")
-else:
-    print("Please enter a single character only, multiple characters aren't allowed")
+        print("Please enter a single character only, multiple characters aren't allowed")
+elif c == 2:
+    if len(n) == 1:
+        if '0' <= n <= '9':
+            print(f"{n} is a digit")
+        else:
+            print(f"{n} is not a digit character")
+    else:
+        print("Please enter a single character only, multiple characters aren't allowed")
+
+elif c == 3:
+    if len(n) == 1:
+        if n in '0123456789':
+           print(f"{n} is a digit")
+        else:
+            print(f"{n} is not a digit character")
+    else:
+        print("Please enter a single character only, multiple characters aren't allowed") 
