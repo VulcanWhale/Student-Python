@@ -1,6 +1,13 @@
 # Wap to check whether the data is mutable or not.
+import ast
 
-n = eval(input("Please enter some value: "))
+input_str = input("Please enter some value: ")
+
+try:
+    n = ast.literal_eval(input_str)
+except (ValueError, SyntaxError):
+    # If the input isn't a literal, treat it as a plain string.
+    n = input_str
 
 c = input("Please enter a choice for which approach you wanna use (1, 2, or 3): ")
 
@@ -10,7 +17,7 @@ if c == '1':
     print("Approach 1: Checking against a list of immutable types")
     # This approach assumes anything not in the list is mutable.
     # This may not be accurate for all types (e.g., frozenset).
-    if type(n) not in [bool, int, float, complex, str, tuple]:
+    if type(n) not in [bool, int, float, complex, str, tuple, frozenset]:
         print(f"The data '{n}' is considered MUTABLE.")
     else:
         print(f"The data '{n}' is considered IMMUTABLE.")
