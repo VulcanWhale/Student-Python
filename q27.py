@@ -5,6 +5,7 @@ def one_liner_approach():
     a = input("Please enter a single character: ")
     if len(a) == 1:
         print(a.lower() if a.isupper() else a.upper() if a.islower() else str(int(a) % 3) if a.isdigit() else str(ord(a)))
+        del a
     else:
         print("Please enter a single character. Multiple characters aren't allowed.")
 
@@ -23,6 +24,8 @@ def readable_approach():
     else:
         print("Please enter a single character. Multiple characters aren't allowed.")
 
+    del char
+
 # --- Main Program ---
 if __name__ == "__main__":
     choice = input("Which approach do you want to use?\n  1: One-Liner\n  2: Readable If/Else\nEnter choice: ")
@@ -34,3 +37,5 @@ if __name__ == "__main__":
             readable_approach()
         case _:
             print("Invalid choice. Please enter 1 or 2.")
+    
+    del choice
