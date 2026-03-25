@@ -24,7 +24,9 @@ def multi_user_approach():
         'Utkarsh': 'Utk1122',
         'Amber': 'dasAmber123'
     }
+
     while True:
+        c = 0
         if (un := input("Please enter your username: ")) in users:
             while True:
                 if (p := input("Please enter your password: ")) == users[un]:
@@ -32,6 +34,11 @@ def multi_user_approach():
                     return # Exit the function
                 else:
                     print("Please enter your password correctly")
+                    c += 1
+                
+                if c == 3:
+                    print("maximum login attempts failed")
+                    return #exit function if 3 times pass mismatched
         else:
             print("Please enter your username correctly")
 
