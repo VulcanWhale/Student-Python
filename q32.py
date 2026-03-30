@@ -4,10 +4,11 @@ n = []
 
 while len(n) < 4:
     try:
-        n += [v for v in [ast.literal_eval(input("Please enter an integer: "))] if isinstance(v, int)]
-    except(ValueError,SyntaxError):
-        print("currently the program can only accept integers only, please insert some integer")
+        # Combined: Walrus for assignment, Ternary for the 'else' message
+        n.append(v) if isinstance(v := ast.literal_eval(input("Please enter an integer: ")), int) else print("Please enter an integer only")
+    except (ValueError, SyntaxError):
+        print("Invalid format! Please insert some integer (no special characters/letters).")
 
-print(max(n))
-del n
-
+if n:
+    print(f"The greatest number is: {max(n)}")
+    del n
